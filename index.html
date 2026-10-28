@@ -85,6 +85,9 @@ button{font:inherit}
   font-family:var(--label);font-size:11px;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 6px 18px -10px rgba(0,0,0,.4);transition:background .8s,color .8s}
 .pill svg{width:16px;height:16px}
 #music[hidden]{display:none}
+#music{width:38px;height:38px;padding:0;justify-content:center;position:relative}
+#music .off{position:absolute;left:9px;right:9px;top:50%;height:1.6px;background:currentColor;transform:rotate(-45deg);border-radius:2px}
+#music.playing .off{display:none}
 #music.playing svg{animation:spin 4s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
 
@@ -238,6 +241,7 @@ html[data-mode="day"] .g-halo:before{background:radial-gradient(circle,rgba(255,
 .ev .t{font-family:var(--label);font-size:13px;letter-spacing:.1em;color:var(--rg);font-variant-numeric:tabular-nums}
 .ev h3{margin:2px 0 0;font-family:var(--serif);font-weight:600;font-size:24px;color:var(--deep);line-height:1.2}
 .ev p{margin:2px 0 0;color:var(--muted);font-size:16px}
+.ev p.ev-sub{font-style:italic;margin-top:0}
 @media (max-width:560px){
   .tl:before{left:8px}
   .ev,.ev:nth-child(even){width:auto;margin-left:0;padding:0 0 26px 34px;text-align:left}
@@ -454,7 +458,7 @@ section[id]{scroll-margin-top:12px}
 <canvas id="petals" aria-hidden="true"></canvas>
 
 <div class="ctl">
-  <button class="pill" id="music" hidden aria-label="Play music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></button>
+  <button class="pill" id="music" hidden aria-label="Play music"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span class="off"></span></button>
   <button class="pill" id="mode" aria-label="Switch to night view">
     <svg id="mode-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
     <span id="mode-tx">Night</span>
@@ -550,10 +554,10 @@ section[id]{scroll-margin-top:12px}
       <div class="rv"><div class="label">The celebrations</div><h2>Wedding Festivities</h2><p class="sub">All ceremonies at Monday Premium Imperial Gardens</p></div>
       <div class="dayhead rv"><span class="dn">Day 1</span><span class="dd">Wednesday, 9 December</span></div>
       <div class="tl">
-        <div class="ev rv"><div class="t">9:00 AM</div><h3>Tilak</h3><p>At the venue</p></div>
-        <div class="ev rv"><div class="t">11:00 AM</div><h3>Floral Haldi</h3><p>Poolside area</p></div>
-        <div class="ev rv"><div class="t">2:00 PM</div><h3>Mandap</h3><p>At the venue</p></div>
-        <div class="ev rv"><div class="t">6:30 PM onwards</div><h3>Sangeet &amp; DJ Night</h3><p>Banquet hall</p></div>
+        <div class="ev rv"><div class="t">10:00 AM</div><h3>Tilak</h3><p>At the venue</p></div>
+        <div class="ev rv"><div class="t">12:00 PM – 3:00 PM</div><h3>Phoolon Wali Haldi</h3><p>Poolside area</p></div>
+        <div class="ev rv"><div class="t">3:00 PM</div><h3>Mandap Pujan</h3><p>At the venue</p></div>
+        <div class="ev rv"><div class="t">7:00 PM onwards</div><h3>Sangeet Sandhya</h3><p class="ev-sub">Music, dance &amp; DJ night</p><p>Banquet hall</p></div>
       </div>
       <div class="dayhead rv"><span class="dn">Day 2</span><span class="dd">Thursday, 10 December</span></div>
       <div class="tl">
@@ -572,7 +576,7 @@ section[id]{scroll-margin-top:12px}
       <p class="sub rv">Outfit inspiration for every celebration. Dress as you feel!</p>
       <div class="dress" id="dress">
         <article class="dc rv">
-          <div class="pic"><img src="dc-tilak.jpg" alt="Tilak outfit inspiration" loading="lazy" width="640" height="640"><span class="when">Wed 9 Dec · 9:00 AM</span></div>
+          <div class="pic"><img src="dc-tilak.jpg" alt="Tilak outfit inspiration" loading="lazy" width="640" height="640"><span class="when">Wed 9 Dec · 10:00 AM</span></div>
           <div class="dc-body">
             <h3>Tilak</h3>
             <div class="theme">Ivory Grace</div>
@@ -581,27 +585,27 @@ section[id]{scroll-margin-top:12px}
           </div>
         </article>
         <article class="dc rv">
-          <div class="pic"><img src="dc-haldi.jpg" alt="Floral Haldi outfit inspiration" loading="lazy" width="640" height="640"><span class="when">Wed 9 Dec · 11:00 AM</span></div>
+          <div class="pic"><img src="dc-haldi.jpg" alt="Phoolon Wali Haldi outfit inspiration" loading="lazy" width="640" height="640"><span class="when">Wed 9 Dec · 12–3 PM</span></div>
           <div class="dc-body">
-            <h3>Floral Haldi</h3>
+            <h3>Phoolon Wali Haldi</h3>
             <div class="theme">Sunshine Bloom</div>
             <ul class="chips"><li><i style="background:#F2C230"></i>Haldi Yellow</li><li><i style="background:#F39C1E"></i>Marigold</li><li><i style="background:#F7E27A"></i>Lemon</li><li><i style="background:#FFFBEF"></i>Jasmine White</li></ul>
             <p>Yellows and florals. Wear something you don't mind getting haldi on, with comfy footwear for the poolside.</p>
           </div>
         </article>
         <article class="dc rv">
-          <div class="pic"><img src="dc-mandap.jpg" alt="Mandap outfit inspiration" loading="lazy" width="640" height="640"><span class="when">Wed 9 Dec · 2:00 PM</span></div>
+          <div class="pic"><img src="dc-mandap.jpg" alt="Mandap Pujan outfit inspiration" loading="lazy" width="640" height="640"><span class="when">Wed 9 Dec · 3:00 PM</span></div>
           <div class="dc-body">
-            <h3>Mandap</h3>
+            <h3>Mandap Pujan</h3>
             <div class="theme">Pastel Charm</div>
             <ul class="chips"><li><i style="background:#F2C3BE"></i>Blush Pink</li><li><i style="background:#BFDCC8"></i>Mint Green</li><li><i style="background:#C6D8EC"></i>Powder Blue</li><li><i style="background:#D6C6E8"></i>Lavender</li></ul>
             <p>Soft pastels with light embroidery. Elegant and easy for a long afternoon.</p>
           </div>
         </article>
         <article class="dc rv">
-          <div class="pic"><img src="dc-sangeet.jpg" alt="Sangeet &amp; DJ Night outfit inspiration" loading="lazy" width="640" height="640"><span class="when">Wed 9 Dec · 6:30 PM</span></div>
+          <div class="pic"><img src="dc-sangeet.jpg" alt="Sangeet Sandhya outfit inspiration" loading="lazy" width="640" height="640"><span class="when">Wed 9 Dec · 7:00 PM</span></div>
           <div class="dc-body">
-            <h3>Sangeet &amp; DJ Night</h3>
+            <h3>Sangeet Sandhya</h3>
             <div class="theme">Starlit Sparkle</div>
             <ul class="chips"><li><i style="background:#1F2747"></i>Midnight Navy</li><li><i style="background:#C7C9CF"></i>Silver</li><li><i style="background:#E7D3AE"></i>Champagne</li><li><i style="background:#1A1A1A"></i>Classic Black</li></ul>
             <p>Sequins, shimmer and Indo-western glam. Dress to dance.</p>
@@ -729,7 +733,7 @@ addEventListener("beforeunload",function(){ window.scrollTo(0,0) });
 <script>
 (function(){
   var RSVP_NUMBER = "";          /* e.g. "919876543210" — leave empty to let the guest pick the contact */
-  var MUSIC_FILE = "";           /* e.g. "music.mp3" once a song is added */
+  var MUSIC_FILE = "music.mp3";
   var reduce = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
   var root = document.documentElement;
 
@@ -807,7 +811,7 @@ addEventListener("beforeunload",function(){ window.scrollTo(0,0) });
   var lastW=innerWidth; addEventListener("resize",function(){ if(Math.abs(innerWidth-lastW)>30){ lastW=innerWidth; buildScene() } });
 
   /* ---- countdown ---- */
-  var target = new Date("2026-12-09T09:00:00+05:30").getTime();
+  var target = new Date("2026-12-09T10:00:00+05:30").getTime();
   var el = {d:document.getElementById("cd-d"),h:document.getElementById("cd-h"),m:document.getElementById("cd-m"),s:document.getElementById("cd-s")};
   function pad(n){return String(n).padStart(2,"0")}
   function setv(n,v){ v=String(v); if(n.textContent===v) return; n.textContent=v; n.classList.remove("flip"); void n.offsetWidth; n.classList.add("flip") }
@@ -1069,6 +1073,12 @@ addEventListener("beforeunload",function(){ window.scrollTo(0,0) });
       [].forEach.call(dots.children,function(d,i){ d.classList.toggle("on",i===best) }) }
     row.addEventListener("scroll",upd,{passive:true}); addEventListener("resize",upd); upd();
   })();
+  /* ---- in-page links scroll smoothly without adding #section to the address bar ---- */
+  document.addEventListener("click",function(e){ var l=e.target.closest&&e.target.closest('a[href^="#"]'); if(!l) return;
+    var id=l.getAttribute("href").slice(1), t=id&&document.getElementById(id); if(!t) return;
+    e.preventDefault(); t.scrollIntoView({behavior:reduce?"auto":"smooth",block:"start"});
+    try{ if(location.hash) history.replaceState(null,"",location.pathname+location.search) }catch(_){} });
+  try{ if(location.hash) history.replaceState(null,"",location.pathname+location.search) }catch(_){}
   /* ---- RSVP via WhatsApp ---- */
   document.getElementById("rsvp").addEventListener("submit",function(e){
     e.preventDefault();
@@ -1085,9 +1095,41 @@ addEventListener("beforeunload",function(){ window.scrollTo(0,0) });
   /* ---- music ---- */
   var mBtn=document.getElementById("music"), audio=null;
   if (MUSIC_FILE) mBtn.hidden=false;
-  function playMusic(){ if(!MUSIC_FILE) return; try{ if(!audio){audio=new Audio(MUSIC_FILE); audio.loop=true}
-    var pr=audio.play(); if(pr&&pr.then) pr.then(function(){mBtn.classList.add("playing")}).catch(function(){}) }catch(e){} }
-  mBtn.addEventListener("click",function(){ if(audio&&!audio.paused){audio.pause(); mBtn.classList.remove("playing")} else playMusic() });
+  /* Web Audio buffer playback: sample-accurate, gap-free looping and smooth fades.
+     Falls back to a plain <audio> element on very old browsers. */
+  var AC=window.AudioContext||window.webkitAudioContext, actx=null, gainN=null, buf=null, srcN=null,
+      wantPlay=false, userPaused=false, playing=false, startedAt=0, offset=0, firstStart=true;
+  try{ if(navigator.audioSession) navigator.audioSession.type="playback" }catch(e){}   /* iPhone: play even in silent mode */
+  if(MUSIC_FILE && AC && window.fetch){
+    try{ actx=new AC(); gainN=actx.createGain(); gainN.gain.value=0; gainN.connect(actx.destination) }catch(e){ actx=null }
+  }
+  if(actx){
+    fetch(MUSIC_FILE).then(function(r){ return r.arrayBuffer() })
+      .then(function(ab){ return new Promise(function(res,rej){ actx.decodeAudioData(ab,res,rej) }) })
+      .then(function(b){ buf=b; if(wantPlay&&!userPaused) startBuf() })
+      .catch(function(){ actx=null; useElement() });
+  } else if(MUSIC_FILE){ useElement() }
+  function useElement(){ try{ audio=new Audio(MUSIC_FILE); audio.loop=true; audio.preload="auto"; audio.load(); if(wantPlay&&!userPaused) playMusic() }catch(e){} }
+  function setBtn(on){ playing=on; mBtn.classList.toggle("playing",on); mBtn.setAttribute("aria-label",on?"Pause music":"Play music") }
+  function startBuf(){ if(playing||!buf) return;
+    srcN=actx.createBufferSource(); srcN.buffer=buf; srcN.loop=true; srcN.connect(gainN);
+    var t=actx.currentTime, fade=firstStart?3.5:1.2; firstStart=false;
+    gainN.gain.cancelScheduledValues(t); gainN.gain.setValueAtTime(0.0001,t);
+    gainN.gain.exponentialRampToValueAtTime(0.35,t+fade*.35); gainN.gain.linearRampToValueAtTime(1,t+fade);
+    offset=offset%buf.duration; srcN.start(t,offset); startedAt=t-offset; setBtn(true) }
+  function stopBuf(){ if(!playing||!srcN) return; var t=actx.currentTime, s=srcN;
+    offset=(t-startedAt)%buf.duration; gainN.gain.cancelScheduledValues(t); gainN.gain.setValueAtTime(gainN.gain.value,t); gainN.gain.linearRampToValueAtTime(0.0001,t+.3);
+    s.stop(t+.32); srcN=null; setBtn(false) }
+  function playMusic(){ if(!MUSIC_FILE||userPaused) return; wantPlay=true;
+    if(actx){ if(actx.state!=="running"){ try{ actx.resume() }catch(e){} } if(buf) startBuf(); return }
+    if(audio && audio.paused){ var pr=audio.play(); if(pr&&pr.then) pr.then(function(){ setBtn(true) }).catch(function(){}) } }
+  mBtn.addEventListener("click",function(e){ e.stopPropagation();
+    if(playing){ userPaused=true; if(actx) stopBuf(); else { audio.pause(); setBtn(false) } }
+    else { userPaused=false; playMusic() } });
+  /* pause when the guest switches apps or tabs, resume when they come back */
+  document.addEventListener("visibilitychange",function(){
+    if(document.hidden){ if(actx&&actx.state==="running") actx.suspend(); else if(audio&&!audio.paused){ audio.pause(); audio._auto=true } }
+    else if(!userPaused){ if(actx&&wantPlay){ try{ actx.resume() }catch(e){} } else if(audio&&audio._auto){ audio._auto=false; playMusic() } } });
 
   /* ---- gate + reveals ---- */
   function reveal(){
@@ -1112,7 +1154,7 @@ addEventListener("beforeunload",function(){ window.scrollTo(0,0) });
   envEl.addEventListener("click", openEnv);
   envEl.addEventListener("keydown", function(e){ if(e.key==="Enter"||e.key===" "){ e.preventDefault(); openEnv() } });
   /* music starts on the guest's first tap anywhere (browsers block autoplay with sound) */
-  document.addEventListener("pointerdown", function once(){ document.removeEventListener("pointerdown", once); if(!audio) playMusic() });
+  document.addEventListener("pointerdown", function once(){ document.removeEventListener("pointerdown", once); if(!wantPlay) playMusic() });
 })();
 </script>
 <script async src="https://www.instagram.com/embed.js"></script>
